@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        main, section, article, div {
+            border: 2px solid #000 ;
+        }
+        main {
+            max-width: 600px;
+            margin: 0;
+            background-color: green;
+        }
+        section {
+            margin: 20px;
+            background-color: greenyellow;
+        }
+        article {
+            padding: 20px;
+            background-color: rgb(1, 83, 13);
+        }
+        div {
+            
+            background-color: wheat;
+        }
+        div.abs {
+            position: absolute;
+            background-color: chocolate;
+            left: 20px;
+            top: 20px;
+        }
+        div.relative {
+            position: relative;
+        }
+        div.foxed {
+            position: fixed;
+            bottom: 50px;
+            left: 40px;
+        }
+        div.sticky {
+            position: sticky;
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <main>main
+        <section>section
+            <article>article
+                <div></div>Hello world
+                <div class="abs">ABS1</div>
+                <div class="relative">relative
+                    <div class="abs">ABS2</div>
+                </div>
+                <div class = "fixed">foxed</div>
+                <div class = "sticky">sticky</div>
+            </article>
+        </section>
+    </main>
+    
+</body>
+</html>
