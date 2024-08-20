@@ -44,13 +44,12 @@
             font-weight: bold;
         }
 
-
     </style>
    
 </head>
 <body>
     <div class="di" onclick="클릭()">
-        임시버튼
+        임시버튼   
     </div>
     <input type="button" value="버튼1" onclick="클릭()">
 
@@ -58,8 +57,8 @@
 
     <!-- 모델창 popup -->
     <div class="outter" id="model_open">
-        <div class="inner">
-            <span class="btn_class">&times;</span>
+        <div class="inner" id = "model_open">
+            <span class="btn_class" onclick="click()">&times;</span>
         </div>
     </div>
 
@@ -71,8 +70,13 @@
             console.log(model);
             console.log(typeof(model));
 
-            model.style.display  = 'block';
+            model.style.display  = 'block'
+        }
+        function 닫기() {
+            let model = document.getElementById('model_open');
+            model.style.display  = 'none'
         }
     </script>
+
 </body>
 </html>
