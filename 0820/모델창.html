@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>버튼 이벤트</title>
+    <style>
+        .di {
+            margin: 15px;
+            padding: 15px;
+            width: 140px;
+            font-size: 25px;
+            font-weight: bold;
+            border: 1px solid #000;
+            border-radius: 15px;
+
+            cursor: pointer;
+        }
+
+        .outter {
+            display: none;
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 1000px;
+            /* background-color: black; */
+            background-color: rgb(0, 0, 0, 0.4);
+        }
+        .inner {
+            background-color: #fefefe;
+            margin: 15% auto;
+            width: 80%;
+            height: 300px;
+            border: 1px solid #888;
+            border-radius: 10px;
+        }
+
+        .btn_class {
+            margin: 20px;
+            float: right;
+            float: right;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+
+    </style>
+   
+</head>
+<body>
+    <div class="di" onclick="클릭()">
+        임시버튼
+    </div>
+    <input type="button" value="버튼1" onclick="클릭()">
+
+    <button>버튼2</button>
+
+    <!-- 모델창 popup -->
+    <div class="outter" id="model_open">
+        <div class="inner">
+            <span class="btn_class">&times;</span>
+        </div>
+    </div>
+
+    <!-- html5 넘어오면서, 생략이 가능하도록 -->
+    <script>
+        //javascript 함수 만들기
+        function 클릭() {
+            let model = document.getElementById('model_open');
+            console.log(model);
+            console.log(typeof(model));
+
+            model.style.display  = 'block';
+        }
+    </script>
+</body>
+</html>
