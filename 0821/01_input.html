@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name ="" id="user_id">
+
+    <script>
+        //javascript의 변수 타입
+        //var, let, const //데이터타입X.
+        //변수타입 변수명 = 값
+        var v1 = 'banana';
+        console.log(v1);
+
+        var v1 = 'apple';
+        let le1 = 'banana';
+       //let le1 = 'apple'; //let은 재선언을 방지 해준다.
+
+       const con1 = '상수'; //절대 변하면  안되는 정보들을 const에 묶어두기
+       console.log(con1); //재선언 불가
+
+       //null, undefined.
+       //null: 값이 없다.
+       //undefined: 값이 할당 되지 않은 상태.
+       let yy;
+       console.log(yy);
+
+
+       //변수 타입 3개. var, let, const
+       let str = 'abc';
+       typeof(str); //데이터 타입을 알려주는 친구.
+       console.log('1','2'); //출력시: 12
+       console.log(typeof(str), str); 
+
+       //데이터 타입 변환
+       let num = 100+'';
+       console.log(typeof(num), num);
+
+       //Number(): 숫자 인식
+       //NumberType, 1.2
+       console.log(typeof(Number('1.2')), Number('1.2'));
+
+        //parseInt(): 숫자 인식 ( 정수 )
+        console,log(typeof(parseInt('1.2')), parseInt('1.2'));
+
+       //console.log(); //console, f12 개발자도구에서 log
+    </script>
+</body>
+</html>
