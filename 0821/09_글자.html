@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한글자씩 보이게 하기</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Bad+Script');
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: ur1("C:\Users\user\Desktop\OIP (1).jfif");
+            background-size: cover;
+            font-family: 'Bad Script' cursive;
+            overflow: hidden;
+        }
+        h1 {
+            margin: 0;
+            padding: 0;
+            color: transparent;
+            font-size: 11em;
+        }
+        h1 span {
+            display: table-cell;
+            animation: alternate 1s linear infinite;
+        }
+        h1 span:nth-child(5n) {
+            animation-delay: 0.5;
+        }
+        h1 span:nth-child(5n+1) {
+            animation-delay: 1.5;
+        }
+        h1 span:nth-child(5n+2) {
+            animation-delay: 2.5;
+        }
+        h1 span:nth-child(5n+3) {
+            animation-delay: 3.5;
+        }
+        h1 span:nth-child(5n+4) {
+            animation-delay: 4.5;
+        }
+        @keyframes animate {
+            0%, 100% {
+                color: #fff;
+                filter: blur(2px) ;
+                text-shadow: 0 0 10px #00b3ff,
+                0 0 20px #00b3ff,
+                0 0 40px #00b3ff,
+                0 0 80px #00b3ff,
+                0 0 120px #00b3ff,
+                0 0 200px #00b3ff;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <span>H</span>
+        <span>e</span>
+        <span>l</span>
+        <span>l</span>
+        <span>o</span>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span>W</span>
+        <span>o</span>
+        <span>r</span>
+        <span>l</span>
+        <span>d</span>
+    </h1>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08Transtion</title>
+    <style>
+        .outline, .box {
+            width: 60px;
+            height: 60px;
+        }
+        .outline {
+            border: 3px solid yellow;
+        }
+        .box {
+            background-color: deepskyblue;
+            transition-duration: 3s;
+            transition-timing-function: ease-in ;
+        }
+        .box:hover {
+            transform: translate(250px);
+            border-radius: 50% ;
+        }
+        .translate {
+            transform: translateX(50px);
+        }
+        .button {
+            background-color: blue;
+            transition: background-color 3s ease-in;
+        }
+        .button:hover {
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <input type="button" class="button" value="전송" >
+    <div class="outline">
+
+    </div>
+</body>
+</html>
