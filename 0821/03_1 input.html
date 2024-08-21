@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>복습</title>
+</head>
+
+<body>
+    <!--type: 사용자 기능 종류 -->
+    <!-- id: html테그 중, 해당 tag를 가리킬 수 있는 수단 중 하나 (대표) -->
+     <!-- 중복 불가 -->
+      <!-- value: 사용자가 입력하는 공간, 값 -->
+    <input type="text" id="user" value="입력되는 공간">
+    <input type="button" value="버튼" onclick="clickEvent()">
+    <script>
+        //document.getElementById('[HTML에 선언 된 ID]')
+        
+        //alert(va1);
+
+        function clickEvent() {
+            let val = document.getElementById('user');
+            alert(val.value);
+        }
+    </script>
+</body>
+</html>
