@@ -7,11 +7,16 @@
 </head>
 <body>
     <input type="text" name="" id="">+<input type="text" name="" id="">
-    <input type="button" value="더하기" onclick="클릭()" ><br/>
+    <input type="button" value="더하기" onclick="clickEvent()">
     <input type="text" id="result">
     <script>
         //input 창 3개. 첫번째 값 + 두번째 값 = 결과값.
         //버튼.
+
+        function clickEvent() {
+            let val = document.getElementById('user');
+            alert(val.value);
+        }
     </script>
 </body>
 </html>
