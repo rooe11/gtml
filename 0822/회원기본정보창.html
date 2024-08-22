@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .input-bg {
+            background-color: #000000;
+            border: 1px solid #000000;
+            border-radius: 4px;
+            padding: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 8px;
+            vertical-align: top;
+        }
+        .title {
+            font-weight: bold;
+            font-size: 1.2em;
+            text-align: center;
+            background-color: #9ed8ff;
+            padding: 10px;
+        }
+        .box {
+            padding: 5px;
+        }
+        textarea {
+            width: 100%;
+            padding: 8px;
+        }
+
+        
+    </style>
+    <m<!DOCTYPE html>
+        <html lang="ko">
+        <head>
+        <body>
+            <body>
+                <form>
+            <div class="container">
+                <h1>회원 가입</h1>
+                <table border=1>
+                    <tr>
+                        <td colspan=2 class="title">회원 기본 정보</td>
+                    </tr>
+            
+                    <tr>
+                        <td>아이디</td>
+                        <td><input type="text" name="id" >
+                            <div></div>
+                            <required> 4~12자의 영문 대소문자와 숫자로만 입력<br><br>
+                    </tr>
+            
+                    <tr>
+                        <td>비밀번호</td>
+                        <td>
+                            <input type="password" name="pw" >
+                            <div></div>
+                            <required> 4~12자의 영문 대소문자와 숫자로만 입력<br><br>
+                        </td>
+                    </tr>
+            
+                    <tr>
+                        <td>비밀번호확인</td>
+                        <td><input type="password" name="checkpw"></td>
+                    </tr>
+            
+                    <tr>
+                        <td>이메일</td>
+                        <td>
+                            <input type="text" name="email1"> @ 
+                            <input type="text" name="email2" list="domain" placeholder="직접 입력">
+                            <div></div>
+                            <required> 예시: id@dorajk.com <br><br>
+                            <datalist id="domain">
+                                <option value="naver.com">naver.com</option>
+                                <option value="gmail.com">gmail.com</option>
+                                <option value="kakao.com">kakao.com</option>
+                            </datalist>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>이름</td>
+                        <td><input type="text" name="name"></td>
+                    </tr>
+            
+                    <tr>
+                        <td colspan=2 class="title">개인 신상 정보</td>
+                    </tr>
+            
+                    <tr>
+                        <td>주민등록번호</td>
+                        <td>
+                            <input type="text" name="ssn" class="input-bg" pattern="\d{13}" title="13자리 숫자로 입력" placeholder="예: 1234561234567" required>
+                            <div class="error" id="ssnError"></div>
+                        </td>
+                    </tr>
+        
+                    <tr>
+                        <td>생일:</td>
+                        <td class="info" id="info__birth">
+                            <select class="box" id="birth-year" required>
+                                <option disabled selected>년도</option>
+                            </select>
+                            <select class="box" id="birth-month" required>
+                                <option disabled selected>월</option>
+                            </select>
+                            <select class="box" id="birth-day" required>
+                                <option disabled selected>일</option>
+                            </select>
+                        </td>
+                    </tr>
+        
+                    <tr>
+                        <td>관심분야</td>
+                        <td>
+                            <input type="checkbox" name="interest" value="여행"> 여행
+                            <input type="checkbox" name="interest" value="영화"> 영화
+                            <input type="checkbox" name="interest" value="독서"> 독서
+                            <input type="checkbox" name="interest" value="음악"> 음악
+                            <input type="checkbox" name="interest" value="관심없음"> 관심없음
+                        </td>
+                    </tr>
+        
+                    <tr>
+                        <td>자기소개</td>
+                        <td><textarea rows="8" cols="50" style="resize: none" required></textarea></td>
+                    </tr>
+                </table>
+                <button type="membership">회원 가입</button type="reenter"><button>다시 입력</button>
+        
+            <script>
+                document.getElementById('registrationForm').addEventListener('submit', function (event) {
+                    
+                    document.querySelectorAll('.error').forEach(e => e.textContent = '');
+        
+                    let valid = true;
+        
+                    const id = document.querySelector('input[name="id"]');
+                    if (!id.value.match(/[A-Za-z0-9]{4,12}/)) {
+                        document.getElementById('idError').textContent = '4~12자의 영문 대소문자와 숫자로만 입력';
+                        valid = false;
+                    }
+        
+                    const pw = document.querySelector('input[name="pw"]');
+                    if (!pw.value.match(/[A-Za-z0-9]{4,12}/)) {
+                        document.getElementById('pwError').textContent = '4~12자의 영문 대소문자와 숫자로만 입력';
+                        valid = false;
+                    }
+    
+                    const checkpw = document.querySelector('input[name="checkpw"]');
+                    if (checkpw.value !== pw.value) {
+                        document.getElementById('checkpwError').textContent = '비밀번호가 일치하지 않습니다.';
+                        valid = false;
+                    }
+
+                    const email1 = document.querySelector('input[name="email1"]').value;
+                    const email2 = document.querySelector('input[name="email2"]').value;
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailPattern.test(`${email1}@${email2}`)) {
+                        document.getElementById('emailError').textContent = '유효한 이메일 주소를 입력해 주세요.';
+                        valid = false;
+                    }
+
+                    const ssn = document.querySelector('input[name="ssn"]');
+                    if (!ssn.value.match(/\d{13}/)) {
+                        document.getElementById('ssnError').textContent = '13자리 숫자로 입력해 주세요.';
+                        valid = false;
+                    }
+        
+                    if (!valid) {
+                        event.preventDefault();
+                    }
+                });
+            </script>
+        </body>
+        </html>
