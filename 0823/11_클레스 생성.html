@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            border: 3px solid #000;
+            background-color: deepskyblue;
+            transition: width 2s, height px;
+        }
+        .wid {
+            width: 80vh;
+        }
+        .hei {
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" id="btn1" value= 너비늘리기>
+    <input type="button" id="btn2" value= 높이늘리기>
+    <div class="box"></div>
+
+    <script>
+        //class 생성 하는 방법
+        //element.classList.add([클래스 명칭]);
+
+         //class 생성 하는 방법
+        //element.classList.remove([클래스 명칭]);
+
+         //class 생성 하는 방법
+        //element.classList.contaims([클래스 명칭]);
+        document.getElementById('btn1').addEventListener('click', wid);
+
+        function wid() {
+            let box = document.querySelector('.box');
+
+            if(box.classList.contains('wid')) {
+                box.classList.remove('wid');
+            } else {
+                box.classList.add('wid');
+            }
+
+
+            
+        }
+
+    </script>
+</body>
+</html>
