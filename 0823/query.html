@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .botder {
+            border: 1px solid #000;
+        }
+        .font-size {
+            font-size: 20px;
+        }
+        .paddong {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" class="botder padding">
+    <input type="text" class="botder font-size">
+
+    <script>
+        //selector를 호출. ( css하고 동일 )
+        //documet.quartSelectorA11
+
+        let s1 = document.querySelectorAll('.border')
+        console.log(s1);
+        let s2 = document.querySelectorAll('.border:nth-child(1)');
+        console.log(s2);
+        let s3 = document.querySelectorAll('input')
+        console.log(s3);
+
+        //querySelectorAll에서 검색 된 것 중에서 제일 처음 검색된 대상 ***하나.
+        let a1 = document.querySelector('border');
+        console.log(a1);
+
+    </script>
+</body>
+</html>
