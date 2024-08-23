@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+    <style>
+        body {
+
+        }
+        .box {
+            margin: 100px;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" onclick="over()">1</div>
+    <div class="box" ondblclick="over()">2</div>
+    <div class="box" onmousedown="over()">3</div>
+    <div class="box" onmouseup="over()">4</div>
+    <div class="box" onmousemove="cons()">5</div>
+    <div class="box" onmouseover="over()">6</div>
+    <div class="box" onmouseout="over()">7</div>
+
+    <input type="text" onkeydown="input(e)">
+    <script>
+        function over() {
+            alert('반응');
+        }
+        function cons() {
+            console.log('check');
+        }
+        function input(e) {
+            console.log('e');
+        }
+    </script>
+</body>
+</html>
