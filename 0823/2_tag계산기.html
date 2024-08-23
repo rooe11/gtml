@@ -18,7 +18,17 @@
     <script>
         function result() {
             //html 테그 더 이상 건들지 말 것.
-            let input =document.get
+            let input =document.getElementsByTagName('input'); // input 모두 불러오기
+            let select =document.getElementsByTagName('select'); // select 불러오기
+
+            switch (selects[0].value) {
+                case '+':
+                    inputs[3].value = Number(inputs[0].value) + Number(input[1],value);
+                    break;
+                case '-':
+                    inputs[3].value = Number(inputs[0].value) + Number(input[1],value);
+                    break;
+            }
         }
         
     </script>
