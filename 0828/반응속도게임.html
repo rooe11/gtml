@@ -11,27 +11,27 @@
             align-items: center;
             height: 100vh;
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #ffffff;
             transition: background-color 0.3s;
         }
         #message {
             font-size: 2em;
             margin-top: 20px;
-            color: #333;
+            color: #000000;
             text-align: center;
         }
         #startButton, #restartButton {
             padding: 10px 20px;
             font-size: 1.5em;
             cursor: pointer;
-            background-color: #007bff;
-            color: white;
+            background-color: #000000;
+            color: rgb(255, 255, 255);
             border: none;
             border-radius: 5px;
             margin-top: 20px;
         }
         #startButton:disabled, #restartButton:disabled {
-            background-color: #cccccc;
+            background-color: #000000;
         }
         #restartButton {
             display: none; /* 초기에는 재시작 버튼을 숨김 */
@@ -94,6 +94,7 @@
             // 게임을 초기 상태로 되돌림
             message.textContent = "";
             document.body.style.backgroundColor = "#f0f0f0"; // 초기 배경색
+            restartButton.style.display = "none"; // 재시작 버튼 숨기기
             startButton.style.display = "inline-block"; // 게임 시작 버튼 보이기
             startButton.disabled = false; // 게임 시작 버튼 활성화
         }
