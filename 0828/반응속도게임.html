@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응 속도 게임</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            transition: background-color 0.3s;
+        }
+        #message {
+            font-size: 2em;
+            margin-top: 20px;
+            color: #333;
+            text-align: center;
+        }
+        #startButton, #restartButton {
+            padding: 10px 20px;
+            font-size: 1.5em;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        #startButton:disabled, #restartButton:disabled {
+            background-color: #cccccc;
+        }
+        #restartButton {
+            display: none; /* 초기에는 재시작 버튼을 숨김 */
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <button id="startButton">click</button>
+        <button id="restartButton">재시작</button>
+        <div id="message"></div>
+    </div>
+
+    <script>
+        let startTime, endTime;
+        let timer;
+
+        const startButton = document.getElementById('startButton');
+        const restartButton = document.getElementById('restartButton');
+        const message = document.getElementById('message');
+
+        startButton.addEventListener('click', startGame);
+        restartButton.addEventListener('click', resetGame);
+
+        function startGame() {
+            // 게임 시작 버튼 클릭 시 초기화
+            message.textContent = "기다리세요..";
+            startButton.disabled = true;
+            document.body.style.backgroundColor = "#f39c12"; // 대기 상태 배경색
+
+            // 랜덤 시간(2초 ~ 5초) 후에 메시지 나타남
+            const randomDelay = Math.floor(Math.random() * 3000) + 2000;
+            timer = setTimeout(showMessage, randomDelay);
+        }
+
+        function showMessage() {
+            // "클릭하세요!" 메시지 표시 및 시간 기록 시작
+            message.textContent = "클릭하세요!";
+            document.body.style.backgroundColor = "#27ae60"; // 클릭 가능 상태 배경색
+            startTime = new Date().getTime();
+
+            document.body.addEventListener('click', recordReactionTime);
+        }
+
+        function recordReactionTime() {
+            // 사용자가 클릭 시 반응 시간 측정
+            endTime = new Date().getTime();
+            const reactionTime = endTime - startTime;
+            message.textContent = `반응 속도: ${reactionTime}ms`;
+            document.body.style.backgroundColor = "#3498db"; // 결과 표시 후 배경색
+
+            // 이벤트 리스너 제거 및 재시작 버튼 활성화
+            document.body.removeEventListener('click', recordReactionTime);
+            startButton.style.display = "none"; // 게임 시작 버튼 숨기기
+            restartButton.style.display = "inline-block"; // 재시작 버튼 보이기
+        }
+
+        function resetGame() {
+            // 게임을 초기 상태로 되돌림
+            message.textContent = "";
+            document.body.style.backgroundColor = "#f0f0f0"; // 초기 배경색
+            startButton.style.display = "inline-block"; // 게임 시작 버튼 보이기
+            startButton.disabled = false; // 게임 시작 버튼 활성화
+        }
+    </script>
+
+</body>
+</html>

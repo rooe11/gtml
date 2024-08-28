@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //함수 선언식, 함수  
+
+        //함수 선언식
+        start();
+        function start() {
+            console.log('start');
+        }
+        
+        //함수 표현식
+        let fn02 = function acc() {
+            console.log('변수');
+        }
+        fn02();
+
+        //함수 표현식, ES6 (2015년 이전 버전의 IE 동작 X => 공무원 pc ( 국가사업에는 사용 지양 ))
+        let fn03 = () => {
+            console.log('fn03');
+        }
+        fn03();
+
+        start02(1);
+        function start02(num1) {
+            console.log('start02: ', num1);
+        }
+
+        //매개변수 1개 담겨질 때, 소괄호 생략 가능하다.
+        let fn04 = num1 => {
+        }
+
+        //함수 표현식 사용할 때 주의사항.
+        //함수 표현식 사용 할 때, 무조건 함수가 우선적으로 선언 되야 한다.
+
+
+
+        //callBack 함수.
+        document.querySelector('.add').addEventListener('click', function() {});
+        document.querySelector('.add').addEventListener('click', fn02);
+
+        document.querySelector('.add').addEventListener('click', start);
+    </script>
+</body>
+</html>
