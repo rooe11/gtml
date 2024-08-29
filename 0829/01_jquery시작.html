@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery</title>
+
+    <style>
+        input {
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="user" value="hello">
+    <script src="/lib/jquery-3.7.1.js"></script>
+    <script>
+        let jq = $('#user').val();
+        //console.log(jq);
+
+        //Jquery
+        $('#user')
+
+        //javascript
+        console.log(document.querySelectorAll('#user'));
+
+        console.log($('input').val());
+
+        //jquery하고 javascript하고 병행해서 사용해도 됩니다.
+        //jquery는 javascript의 코드를 요약해서 사용한다.
+        //jquery는 불러올 때 '$'를 통해서 불러오는데. (이 기능도 자동)
+        //불러올 때, 배열 입니다. (만약, 값이 한 개일 경우, 단일로도 자동으로 인식 )
+
+        //javascript 하고 jquery 비교했을 떄, 우선순위는 공부하시는 것이 매우 좋습니다.
+        //javascript(바닐라) = jquery, react, vue(js가 불편해서 만든 언어 )
+        //퍼포먼스는 무슨 언너든 비슷. 애매하게 배웠을 때
+    </script>
+</body>
+</html>
