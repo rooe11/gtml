@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>환영합니다.</h1>
+    <input type="button" value="url 가져오기" onclick="loed()">
+
+    <script>
+        function loed() {
+            let pa = window.location.pathname;
+            console.log(pa);
+
+            let hr = window.location.href;
+            console.log(hr);
+
+            let search = window.location.search
+            console.log(search);
+
+            let host = window.location.host
+            console.log(host);
+            let sp = search.split('=');
+            console.log()
+        }
+    </script>
+</body>
+</html>
