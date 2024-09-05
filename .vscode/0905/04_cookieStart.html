@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="쿠키 체크하기" onclick="getCookie()">
+    <input type="button" value="쿠키 저장" onclick="setCookie()"><br />
+
+    <script>
+        //cookie 생성
+        function setCookie() {
+            document.cookie = 'cook=value'; //name = value, key = value
+
+            //그냥 저장했을 떄는 내가 켜고 있는 브라우저가 종료되면 cookie가 모두 삭제.
+        }
+
+        
+    </script>
+
+
+    <h1>쿠기 만료기간 만들기</h1>
+    <input type="button" value="max-age" onclick="setDayCookie()">
+    <input type="button" value="쿠키 저장" onclick="setCookie()"><br />
+    <input type="button" value="쿠키 체크하기" onclick="setDayCookie()">
+
+    <input type="input" id="inpName" placeholder="쿠키 이름">
+    <input type="button" value="쿠키 값 가져오기" onclick="getNameCookie()">
+    <input type="button" value="쿠키 삭제하기" onclick="delCookie()">
+    <script>
+
+        function delCookie() {
+            let cookName = document.getElementById('inpName');
+
+            console.log('삭제대상 쿠기: ', cookName.value);
+
+            document.cookie = cookName.value+'= ;Max-age= -1'
+            |//삭제 할 때 주의사항.
+            //만들 때 option 설정 한 것, 삭제할 때 그 옵션 그대로 갖고 와야 합니다.
+            //생략했으면 생략한 것 그대로, domain 혹은 시큐리등 설정했으면 그거 그대로 들고 와야한다.
+            //expires하고 Max-Age는 제외
+            //Max-Age의 값이 -1일 때, 삭제.
+
+            cookName.value = '';
+            cookName. focus();
+        }
+
+
+        function getNameCookie() {
+        let cookName = document.getElementById('inpName');
+        let va = getCookies(cookName.value);
+        console.log('value: ', va);
+
+        cookName.value = '';
+        cookName. focus();
+        }
+    </script>
+
+    <script>
+
+        //만료기간을 설정 하기 위해서는 cookie에 expire 옵션을 추가 해야 합니다.
+        //expires 경우, 시계 형식 UTC, GMT 방식
+        function setDayCookie() {
+
+            let date = new Date();
+            //현재 날짜에서 더하기
+            date.setTime(date.getTime() + (3 *24 * 60 * 60 * 1000));
+            console.log(date.toUTCString());
+            expires = "; expires=" + date.toUTCString();
+
+            document.cookie = 'day=cook;'+expires;
+            //쿠키 만료일을  추가
+            //document.cookie = "cook=value; expires=Fri, 31 Dec 2024 23:59:59 GMT";
+
+        }
+
+        //cookie 모두 불러오기
+        function getCookie() {
+            console.log(document.cookie);
+        }
+
+        //max-age
+        function maxSave() {
+            //숫자로 저장을 하는데, 1 = 1초. (1시간 3600)*24
+            document.cookie = 'obj=apple; max-age='+5;
+        }
+
+
+        //Secure.
+        //SSL적용 된 것만, cookie가 설정 되도록 설정.
+        //보안을 위해서 만들어진 것.
+        //https에서만 동작 된다, http://localhost
+        document.cookie="sec=value; Secure; ";
+
+        //Domain
+        //wnth. localhost
+        //https://www.naver.com = > naver.com / mail.naver.com => naver.com
+        document.cookie='doc=banana; Domain=localhost';
+        //Domain속성을 입력을 안 할 경우, Default로 현재 사이트의 domain이 자동으로 입력.
+        //현재 페이지와 쿠키가 저장된 Domain이 일치하지 않으면 Cookie는 실행되지 않는다.
+
+        //path
+        document.cookie = 'pa=papa;';
+        //서버에 대한 환경에 따라서 있는 경우가 있고, 없는 경우가 존재.
+        //한국은 없는 경우가 대부분, ( 이유는 ip가 너무 많아요. )
+
+        //ip 한 개로 여러 회사가 같이 사용. => port로 구분.
+        //path는 '/'이게 현재 폴더 위치. ' ../lib/aseeet'
+        //우리는 server개냠이 없고, 폴더를 통해사 주고 받다보니. path. (폴더위치)
+        //psth='/' 얘는 최상위, 이 경로 기준, 하위 디렉터리 모두 포함 '/lib' => ok
+        function getCookies(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1);
+        if (c.indexOf(nameEQ) == 0) {
+            return c.substring(nameEQ.length, c.length);
+        }
+    }
+    return null;
+}
+
+//cookie 저장 형태
+cook=100; cook1=150
+
+    </script>
+</body>
+</html>
