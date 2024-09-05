@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="저장" onclick="save()">
+    <input type="button" value="불러오기" onclick="load()">
+
+    <script>
+        //Pc에다가 저장. ( localStorage 처럼 )
+        // localStorage는 브라우저를 모두 종료해도 다시 불러올 수 있습니다.
+        //seesionStorage는 '텝' 을 종료할 경우 모두 삭제 됩니다.
+
+        //1번째 텝에서 로그인을 했고. 그 로그인을 session에다가 저장.
+        //텝이 생기거나 텝이 달라질 경우, session내용 또한 없습니다. ( 서로 공유 안 됩니다. )
+        
+        function save() {
+            sessionStorage.setItem('se', '값');
+        }
+
+        function load() {
+            console.log(sessionStorage.getItem('se'));
+        }
+    </script>
+</body>
+</html>
